@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+	// 문제 조건 : C언어의 경우는 scanf, print 사용하면 
+    // 			  속도가 충분히 빠르므로 일반적인 a+b를 작성하면 된다.
+	int t, a, b;
+
+	scanf("%d", &t); // 테스트 케이스의 개수
+
+	for (int i = 0; i < t; i++) { // 개수만큼 a,b 입력 받고 출력
+		scanf("%d %d", &a, &b);
+		printf("%d\n", a+b);
+	}
+}
