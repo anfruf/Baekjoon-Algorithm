@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+	int test, a, b;
+
+	scanf("%d", &test);
+
+	for (int i = 1; i <= test; i++) { // test case 번호 붙여 출력
+		scanf("%d %d", &a, &b);
+		printf("Case #%d: %d\n", i, a + b);
+	}
+}
