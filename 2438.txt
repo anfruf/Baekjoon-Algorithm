@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main()
+{
+	int n, x, num;
+
+	scanf("%d %d", &n, &x); // n개의 수에서 x보다 작은 수 찾기
+
+	for (int i = 0; i < n; i++) { // n번을 돌며
+		
+		scanf("%d", &num); // 수를 입력받아
+
+		if (x > num) { // x와 비교해 작으면 출력
+			printf("%d ", num);
+		}
+	}
+	return 0;
+}
