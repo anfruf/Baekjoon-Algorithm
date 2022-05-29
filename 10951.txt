@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main()
+{
+	int A, B;
+
+	while (scanf("%d %d", &A, &B) != EOF) // EOF : End Of File
+	// EOF, -1또는 입력조건의 개수인 2와 같을 때 반복
+		printf("%d\n", A + B);
+	return 0;
+}
