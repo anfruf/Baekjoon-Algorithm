@@ -1,0 +1,26 @@
+int main()
+{
+	int input, number, new_number, sum;
+	int a,b = 0;
+	int count = 0; 
+
+	scanf("%d", &input); // 입력받기 ex)26
+
+	number = input; 
+
+	while(1)
+	{ // 새로운 수(new_number)가 입력한 수(input)와 같을 때까지 반복
+		a = number / 10; // ex)2
+		b = number % 10; // ex)6
+		sum = a+b; // ex)8
+        new_number = b * 10 + sum % 10; // 새로운 수 ex)68
+		number = new_number; 
+		count++; // 사이클 세기
+
+		if (new_number == input) break;
+	} 
+
+	printf("%d", count);
+
+	return 0;
+}
