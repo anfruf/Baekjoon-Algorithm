@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main()
+{
+	int max = 0, index;
+	int arr[9]; // 주어지는 수가 9개로 정해져 있다
+
+	for (int i = 0; i < 9; i++) {
+		scanf("%d", &arr[i]);
+		if (arr[i] > max) { // 최대값 설정
+			max = arr[i];
+			index = i + 1; // i=0으로 시작해서 +1 해줌
+            			   // (i=1로 시작할 때 해 줄 필요 없음)
+		}
+	}
+
+	printf("%d\n%d", max, index); // index 값은 여기서 +1 해도 된다
+
+	return 0;
+}
+profile
+anfruf
