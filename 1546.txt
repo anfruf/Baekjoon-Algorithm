@@ -1,0 +1,23 @@
+// 1.1차원 배열 이용
+#include <stdio.h>
+
+int main()
+{
+	int input, max = 0;
+	double result = 0;
+	double arr[1000]; // 문제 조건 : 과목의 갯수 1000개와 같거나 작음
+	scanf("%d", &input);
+
+	for (int i = 0; i < input; i++) { // 수만큼 점수들을 입력받아 배열 저장
+		scanf("%lf", &arr[i]);
+		if (arr[i] > max) max = arr[i]; // 최댓값
+	}
+
+	for (int i = 0; i < input; i++) {
+		result += arr[i] / max * 100; // 새로운 점수들의 합
+	}
+
+	printf("%lf", result / input); // 새로운 점수들의 평균
+
+	return 0;
+}
