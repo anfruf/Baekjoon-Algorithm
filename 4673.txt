@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+// 함수 부분 
+int check(int n) 
+{
+	int num = n;
+
+	while (n > 0) 
+	{
+		num += n % 10; // 자기 자신 + 자리수 
+		n /= 10;
+	}
+	return num;
+}
+
+// main
+int main()
+{
+    int arr[10000]={0, }; // 문제에 범위 제시
+	for (int i = 0; i <= 10000; i++)
+	{
+		if (check(i) <= 10000) 
+			arr[check(i)] = 1; 
+	}
+	for (int i = 0; i <= 10000; i++)
+	{
+		if (arr[i] != 1)
+			printf("%d\n", i);
+	}
+	return 0;
+}
