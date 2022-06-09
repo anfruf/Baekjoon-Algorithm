@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int HanSu(int n);
+
+int main()
+{
+	int n;
+
+	scanf("%d", &n);
+
+	printf("%d", HanSu(n));
+
+	return 0;
+}
+
+int HanSu(int n)
+{
+	int sum = 0;
+
+	if (n > 99) // 입력받은 수가 3자리일 때
+	{
+		sum += 99; // 99까지는 등차수열 99개
+        // 99+ 입력받은 수까지 등차수열 개수 count
+		for (int i = 100; i <= n; i++) {
+			int n1 = i / 100; //백의 자리
+			int n2 = i / 10 % 10; //십의 자리
+			int n3 = i % 10; //일의 자리
+			if (n1 - n2 == n2 - n3) sum++; 
+		}
+	}
+	else sum = n; // 입력받은 수가 2자리일 때 = 입력받은 수만큼 등차수열 존재
+
+	return sum;
+}
