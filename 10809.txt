@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h> // strlen()사용 
+int main()
+{
+	char arr[100]; // 단어 입력받기(최대 길이 제시되어 있음)
+	scanf("%s", arr);
+
+	int result[26]; // 알파벳이 있으면 index, 없으면 -1 저장
+	for (int i = 0; i < 26; i++) { // -1로 초기화
+		result[i] = -1;
+	}
+
+	for (char i = 'a'; i <= 'z'; i++) { 
+		for (int j = 0; j < strlen(arr); j++) { 
+			if (i == arr[j]) { // 알파벳이 단어에 있다면
+				if (result[i - 'a'] == -1){ // 같은 소문자가 있을 경우를 대비
+                	result[i - 'a'] = j;
+                }
+			}
+		}
+	}
+
+	for (int i = 0; i < 26; i++) { // 알파벳 여부 출력
+		printf("%d ", result[i]);
+	}
+}
