@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h> // strlen()
+
+int main() {
+	
+    // test : 테스트 케이스의 개수 , repeat : 반복 횟수
+	int test, repeat; 
+    char str[20]; // 문자열
+	scanf("%d", &test); // 테스트 케이스의 개수 입력받기
+
+	for (int i = 0; i < test; i++) { // 테스트 케이스만큼 반복
+		scanf("%d %s", &repeat, str); // 반복 횟수와 문자열 입력받기
+
+		for (int j = 0; j < strlen(str); j++) { // 문자열의 길이만큼 
+			for (int k = 0; k <repeat; k++) { // 반복횟수로 
+				printf("%c", str[j]); // 문자열의 각 문자 출력
+			}
+		}
+		printf("\n");
+	}
+}
