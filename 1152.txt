@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char str[1000000]; 
+	int len, count = 1;
+
+	scanf("%[^\n]s", str); // scanset : 범위까지만 입력 받기 
+	len = strlen(str);
+
+	if (len == 1 && str[0] == ' ') { // 공백 하나만 입력됐을 때
+		printf("0");
+		return 0;
+	}
+
+	for (int i = 1; i < len-1; i++) { // 문장의 처음과 끝에 공백을 세지 않기
+		if (str[i] == ' ')
+			count++;
+	}
+
+	printf("%d", count);
+	return 0;
+}
