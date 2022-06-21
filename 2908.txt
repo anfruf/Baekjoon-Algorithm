@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h> // strcmp( ) 사용
+
+int main() {
+
+	char a[4], b[4], tmp; 
+	scanf("%s %s", a, b);
+
+	// a 문자열을 거꾸로 바꾸기
+	tmp = a[0]; 
+	a[0] = a[2];
+	a[2] = tmp;
+
+	// b 문자열을 거꾸로 바꾸기
+	tmp = b[0];
+	b[0] = b[2];
+	b[2] = tmp;
+
+	// strcmp(a,b) : a가 크면 양수, b가 크면 음수, 같으면 0을 반환
+	if (strcmp(a, b) > 0)
+		printf("%s", a);
+	else
+		printf("%s", b);
+
+	return 0;
+}
