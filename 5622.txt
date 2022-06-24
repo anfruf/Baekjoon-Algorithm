@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int func(char x); // 문자를 넣으면 걸리는 시간을 RTN 할 함수
+
+int main()
+{
+	int sum = 0; // sum = 총 걸리는 시간
+    
+	char* str = (char*)malloc(sizeof(char) * 15);
+	scanf("%s", str);
+
+	for (int i = 0; i < strlen(str); i++)
+		sum += func(str[i]); // 입력한 문자열을 돌며 각 단어의 소요 시간을 더함
+
+	printf("%d", sum);
+	return 0;
+}
+
+int func(char x) // switch문 사용
+{
+	switch (x)
+	{
+	case 'A':
+	case 'B':
+	case 'C':
+		return 3;
+	case 'D':
+	case 'E':
+	case 'F':
+		return 4;
+	case 'G':
+	case 'H':
+	case 'I':
+		return 5;
+	case 'J':
+	case 'K':
+	case 'L':
+		return 6;
+	case 'M':
+	case 'N':
+	case 'O':
+		return 7;
+	case 'P':
+	case 'Q':
+	case 'R':
+	case 'S':
+		return 8;
+	case 'T':
+	case 'U':
+	case 'V':
+		return 9;
+	default:
+		return 10;
+	}
+}
