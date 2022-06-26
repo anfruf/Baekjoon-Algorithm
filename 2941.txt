@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char input[100];
+	int len, count = 0;
+
+	scanf("%s", input);
+	len = strlen(input);
+
+	// 입력받은 문자열만큼 돌며 크로아티아 문자일 때는 count 하지 않기
+	for (int i = 0; i < len; i++) { 
+		if (input[i] == 'z') {   //dz=
+			if (input[i - 1] == 'd' && input[i + 1] == '=')
+				continue;
+		}
+		if (input[i] == 'j') {   //lj , nj
+			if (input[i - 1] == 'l' || input[i - 1] == 'n')
+				continue;
+		}
+		if (input[i] == '=' || input[i] == '-')   //=, -가 붙을 때
+			continue;
+		count++;
+	}
+	printf("%d", count);
+}
