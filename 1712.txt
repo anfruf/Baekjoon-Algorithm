@@ -1,0 +1,21 @@
+// 손익분기점 구하기
+// a(고정비용) + b(가변비용) x result(판매량) < c(상품 가격) x result(판매량)
+// ---> a+b*result < c*result
+// ---> a < c*result - b*result
+// ---> a < (c-b)*result
+// ---> a / (c-b) < result
+// ---> result = a / (c-b) +1 (이익 발생)
+#include <stdio.h>
+
+int main() {
+    
+    int a, b, c, result = 0; // 문제 조건 : 21억 이하 자연수
+    scanf("%d %d %d", &a, &b, &c);
+
+    if (b >= c) // 손익 분기점이 존재하지 않는 경우
+        printf("-1");
+    else { // 손이 분기점 출력
+        result = a / (c - b) + 1;
+        printf("%d", result);
+    }
+}
