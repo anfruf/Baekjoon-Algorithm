@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+	int x;
+	scanf("%d", &x); // 몇 번째 분수를 찾는지 입력받기
+
+	int line = 1; 
+	while (x>line) { 
+		x -= line;
+		line++;
+	}
+
+	// 홀 / 짝 줄에 따라 분자/분모 출력
+	if (line % 2 == 1) 
+		printf("%d/%d", line + 1 - x, x);
+	else
+		printf("%d/%d", x, line + 1 - x);
+
+}
