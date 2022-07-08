@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+	int test, height, width, n;
+	scanf("%d", &test); // test case를 입력받아 그 수만큼 반복
+
+	for (int i = 0; i < test; i++) {
+
+		scanf("%d %d %d", &height, &width, &n);
+		if (n % height==0) // 고객 수 == 높이
+			printf("%d%02d\n", height, n / height);
+		else // 고객 수 != 높이
+			printf("%d%02d\n", n % height, n / height+1);
+	}
