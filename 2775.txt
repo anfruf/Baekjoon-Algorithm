@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main()
+{
+	int test, k, n; // k == 층, n == 호
+	scanf("%d", &test); 
+
+	for (int i = 0; i < test; i++) {
+		scanf("%d %d", &k, &n);
+		printf("%d\n", apart(k, n)); // apart(a, b) == a층 b호에 사는 사람 수를 구해준다
+	}
+	return 0;
+}
+int apart(int k, int n) { // apart( ) 구현 부분
+
+	int sum = 0;
+	if (k == 0) // 문제 제시 : 0층 부터 시작, 0층의 i호에는 i명이 산다
+		return n; // ---> 0층일 때 n 명이 산다
+	else if (n == 1) // 1호에는 층수 관계 없이 1명만 산다
+		return 1;
+	else { // 각 층, 각 호에 사는 사람들을 더한 최종 sum을 RTN(재귀 함수 이용)
+		for (int i = 1; i <= n; i++) {
+			sum += apart(k - 1, i); 
+		}
+		return sum;
+	}	
+}
