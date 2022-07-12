@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main()
+{
+	int n, result = 0;
+	scanf("%d", &n);
+
+	while (1) {
+		if (n % 5 == 0) { // 5의 배수일 때는 그냥 몫만 출력
+			result += n / 5;
+			printf("%d", result);
+			break;
+		}
+		n -= 3; // 5의 배수가 아니면 3을 빼주고 횟수인 result++
+		result++;
+		if (n < 0) { // 5와 3으로 나누어지지 않을 때
+			printf("%d", -1);
+			break;
+		}
+	}
+}
