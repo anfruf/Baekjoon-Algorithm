@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <string.h>
+
+void reverse(char arr[]) { // 문자열을 넘겨받아 뒤집어주기
+	
+    char tmp;
+    
+    // 뒤집는다==문자열의 반만 서로 순서를 뒤바꾸면 된다. (streln /2)
+	for (int i = 0; i < strlen(arr) /2; i++) 
+	{
+		tmp = arr[i];
+		arr[i] = arr[strlen(arr) - i - 1]; // -1=='\0' 빼주기
+		arr[strlen(arr) - i - 1] = tmp;
+	}
+}
+
+int main() {
+	// 숫자 a,b를 문자열로 받아 처리
+    // a+b를 담을 sum의 범위는 당연히 a+b보다 크게 해준다.
+	char a[10001] = { 0 }, b[10001] = { 0 }, sum[10005] = { 0 };
+	int len, num, carry = 0;
+
+	scanf("%s %s", a, b); // 두 숫자를 문자열로 입력받기
+    
+    // reverse() == 문자열 뒤집어주기
+	reverse(a);
+	reverse(b);
+	
+    // 길이가 더 긴 문자열로 범위를 잡기
+    len = strlen(a) > strlen(b) ? strlen(a) : strlen(b);
+    
+	for (int i = 0; i < len; i++) {
+    	// 문자열의 맨 앞(숫자의 일의 자리)부터 둘을 더하기
+        // 문자열 상태이므로 '0'을 빼줘야 자기 본래의 값이 들어간다.
+        // carry == 올림수
+		num = a[i] - '0' + b[i] - '0' + carry;
+
+		// a,b의 길이가 다른 경우, a[i] 또는 b[i]의 값은 null, 애꿎은 '0'값이 마이너스
+        // num이 음수가 되버리므로, 다시 양수로 만들어준다.
+		while (num < 0) 
+        	num += '0';
+            
+         // 만약 a+b가 올림 수가 발생한다면, 다음 num에 계산할 수 있도록 1로 바꿔줌
+		if (num >= 10) carry = 1;
+		else carry = 0;
+
+		// 둘을 더한 값의 일의 자리 수만 결과 배열에 저장
+		sum[i] = num % 10 + '0';
+	}
+    // 둘을 더한 후 마지막 올림수가 있을 때 배열 저장
+	if (carry) sum[len] = '1';
+    
+    // 다시 원래의 순서로
+	reverse(sum);
+	printf("%s", sum);
+}
